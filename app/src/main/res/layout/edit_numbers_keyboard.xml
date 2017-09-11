@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <android.support.v7.widget.CardView
+           android:layout_margin="1dp"
+           android:layout_weight="1"
+           app:cardCornerRadius="2dp"
+           android:layout_width="0dp"
+           android:layout_height="64dp">
+           <ImageView
+               android:id="@+id/num_01"
+               android:src="@drawable/num_01"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:clickable="true"
+               android:onClick="clickNumbers"/>
+
+       </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_02"
+                android:src="@drawable/num_02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_03"
+                android:src="@drawable/num_03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_04"
+                android:src="@drawable/num_04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_05"
+                android:src="@drawable/num_05"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="2"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/submit_numbers"
+                android:src="@drawable/button03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickButton"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_06"
+                android:src="@drawable/num_06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_07"
+                android:src="@drawable/num_07"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_08"
+                android:src="@drawable/num_08"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_09"
+                android:src="@drawable/num_09"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/num_00"
+                android:src="@drawable/num_00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickNumbers"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="1dp"
+            android:layout_weight="2"
+            app:cardCornerRadius="2dp"
+            android:layout_width="0dp"
+            android:layout_height="64dp">
+            <ImageView
+                android:id="@+id/delete_numbers"
+                android:src="@drawable/button05"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="clickButton"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>
