@@ -14,11 +14,15 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    boolean isRnd = true;
+    int[] com = new int[3];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
 
     }
@@ -28,5 +32,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
 
+
     }
+
+
 }

@@ -33,7 +33,12 @@ public class GameActivity extends AppCompatActivity {
     boolean isThird = false;
 
     Random rnd;
+    boolean isRnd=true;
     int[] com = new int[3];
+    int strike;
+    int ball;
+    int roundCnt;
+
 //    int comF;
 //    int comS;
 //    int comT;
@@ -66,55 +71,92 @@ public class GameActivity extends AppCompatActivity {
 //        timeBar = (ImageView)findViewById(R.id.time_bar);
 //        editNum = (EditText)findViewById(R.id.edit_number)
 
-
-
-    }
-    public void makeRndNum(){
-
-        rnd = new Random();
+        makeNumber();
 
 
 
     }
 
-    public String hitNumbers(){
+    public void makeNumber(){
+
+        while (isRnd){
+
+            for(int i=0;i<com.length;i++){
+
+                com[i]=(int)(Math.random()*10);
+            }
+            if (com[0]!=com[1]&&com[1]!=com[2]&&com[0]!=com[2]){
+
+                isRnd=false;
+            }
+
+
+        }
+
+        Log.d("hiting","com:"+com[0]+""+com[1]+""+com[2]+"");
+
+    }
+
+    boolean isOut=false;
+
+    public void hitNumbers(){
+        isRnd=true;
+
+            int st=0;
+            int ba=0;
+
+
+            for(int i=0;i<com.length;i++){
+                for(int j=0;j<user.length;j++){
+
+                    if(com[i]==user[j]&&i==j){
+                        st++;
+
+
+                    }else if(com[i]==user[j]&&i!=j){
+                        ba++;
+
+
+                    }else if(com[i]!=user[j]){
+                        isOut=true;
+
+                    }
+
+                }
+            }
+
+            if(strike==3){
+                isOut=false;
+                Log.d("hiting","End");
+            }
+
+            roundCnt++;
+            Log.d("hiting",st+" S/"+ba+" B/"+isOut+" OUT/"+roundCnt+" round");
 
 
 
-        return null;
+
+
     }
 
 
     public void viewNumbers(int img,int num) {
+        boolean isNum = false;
+       while(!isNum){
 
-        if(!isFirst){
+           for(int i =0;i<user.length;i++){
 
-            isFirst=true;
-            firstN.setImageResource(img);
-            user[0]=num;
-            Log.d("viewNumbers",user[0]+"");
+               user[i]=num;
 
+               for(int j= 0;j<i;j++){
 
-        }else if(!isSecond){
+                   
+               }
 
-            if(f==num) return;
-
-            isSecond=true;
-            secondN.setImageResource(img);
-            user[1]=num;
-            Log.d("viewNumbers",user[1]+"");
-
-        }else if(!isThird){
-
-            if(s==num) return;
-
-            isThird=true;
-            thirdN.setImageResource(img);
-            user[2]=num;
-            Log.d("viewNumbers",user[2]+"");
-        }
+           }
 
 
+       }
 
     }
 
