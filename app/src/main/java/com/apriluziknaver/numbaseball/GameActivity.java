@@ -23,14 +23,17 @@ public class GameActivity extends AppCompatActivity {
     RecyclerView someoneRecycler;
     StateAdapter stateAdapter;
     TextView countRound;
+
     ImageView firstN;
     ImageView secondN;
     ImageView thirdN;
+
+
     ImageView timeBar;
 
-    boolean isFirst = false;
-    boolean isSecond = false;
-    boolean isThird = false;
+//    boolean isFirst = false;
+//    boolean isSecond = false;
+//    boolean isThird = false;
 
     Random rnd;
     boolean isRnd=true;
@@ -48,7 +51,7 @@ public class GameActivity extends AppCompatActivity {
     int f;
     int s;
     int t;
-
+    ImageView[] imgs= new ImageView[3];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +67,16 @@ public class GameActivity extends AppCompatActivity {
 
         countRound = (TextView) findViewById(R.id.count);
 
+
+
         firstN = (ImageView) findViewById(R.id.first);
         secondN = (ImageView) findViewById(R.id.second);
         thirdN = (ImageView) findViewById(R.id.third);
+
+
+        imgs[0]=firstN;
+        imgs[1]=secondN;
+        imgs[2]=thirdN;
 
 //        timeBar = (ImageView)findViewById(R.id.time_bar);
 //        editNum = (EditText)findViewById(R.id.edit_number)
@@ -141,23 +151,12 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void viewNumbers(int img,int num) {
-        boolean isNum = false;
-       while(!isNum){
+        boolean isNum = true;
 
-           for(int i =0;i<user.length;i++){
-
-               user[i]=num;
-
-               for(int j= 0;j<i;j++){
-
-                   
-               }
-
-           }
-
-
-       }
-
+        
+        firstN.setImageResource(R.drawable.num_00+num);
+        secondN.setImageResource(R.drawable.num_00+num);
+        thirdN.setImageResource(R.drawable.num_00+num);
     }
 
     public void clickNumbers(View v) {
@@ -167,8 +166,8 @@ public class GameActivity extends AppCompatActivity {
         switch (id) {
 
             case R.id.num_00:
-
                 viewNumbers(R.drawable.num_00,0);
+
                 break;
             case R.id.num_01:
                 viewNumbers(R.drawable.num_01,1);
