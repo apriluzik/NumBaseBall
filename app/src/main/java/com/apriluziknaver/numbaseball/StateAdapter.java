@@ -39,7 +39,8 @@ public class StateAdapter extends RecyclerView.Adapter {
         ViewHolder mholder = (ViewHolder)holder;
 
         mholder.number.setText(item.get(position).number);
-        mholder.state.setText(item.get(position).state);
+        mholder.strike.setText(item.get(position).strike);
+        mholder.ball.setText(item.get(position).ball);
 
     }
 
@@ -49,14 +50,15 @@ public class StateAdapter extends RecyclerView.Adapter {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView state;
+        TextView ball;
+        TextView strike;
         TextView number;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            state = itemView.findViewById(R.id.state);
+            ball = itemView.findViewById(R.id.ball);
+            strike = itemView.findViewById(R.id.strike);
             number = itemView.findViewById(R.id.number);
 
         }

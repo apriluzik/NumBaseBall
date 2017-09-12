@@ -7,5 +7,17 @@ package com.apriluziknaver.numbaseball;
 public class StateItem {
 
     String number;
-    String state;
+    String strike;
+    String ball;
+    String result;
+
+    public StateItem(String number, String strike, String ball) {
+        this.number = number;
+        this.strike = strike;
+        this.ball = ball;
+    }
+
+    public StateItem(String result) {
+        this.result = result;
+    }
 }

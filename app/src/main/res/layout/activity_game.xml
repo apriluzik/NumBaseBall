@@ -132,7 +132,8 @@
                     android:id="@+id/first"
                     android:src="@drawable/num_00"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:tag="first"/>
 
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
@@ -141,11 +142,13 @@
                 app:cardCornerRadius="2dp"
                 android:layout_width="64dp"
                 android:layout_height="64dp">
+
                 <ImageView
                     android:id="@+id/second"
-                    android:src="@drawable/num_00"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:src="@drawable/num_00"
+                    android:tag="second" />
 
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
@@ -158,7 +161,8 @@
                     android:id="@+id/third"
                     android:src="@drawable/num_00"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:tag="third"/>
 
             </android.support.v7.widget.CardView>
 

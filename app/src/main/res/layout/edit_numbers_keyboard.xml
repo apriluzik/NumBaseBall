@@ -23,7 +23,8 @@
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:clickable="true"
-               android:onClick="clickNumbers"/>
+               android:onClick="clickNumbers"
+               android:tag="1"/>
 
        </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -38,7 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="2"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -53,7 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="3"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -68,7 +71,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="4"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -83,7 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="5"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -94,11 +99,12 @@
             android:layout_height="64dp">
             <ImageView
                 android:id="@+id/submit_numbers"
-                android:src="@drawable/button03"
+                android:src="@drawable/btn_hit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickButton"/>
+                android:onClick="clickButton"
+                android:tag="hit"/>
 
         </android.support.v7.widget.CardView>
 
@@ -121,7 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="6"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -136,7 +143,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="7"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -151,7 +159,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="8"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -166,7 +175,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="9"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -181,7 +191,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickNumbers"/>
+                android:onClick="clickNumbers"
+                android:tag="0"/>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -192,11 +203,12 @@
             android:layout_height="64dp">
             <ImageView
                 android:id="@+id/delete_numbers"
-                android:src="@drawable/button05"
+                android:src="@drawable/btn_backspace"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="clickButton"/>
+                android:onClick="clickButton"
+                android:tag="delete"/>
 
         </android.support.v7.widget.CardView>
 
