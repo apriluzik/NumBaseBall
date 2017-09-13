@@ -9,7 +9,7 @@ public class StateItem {
     String number;
     String strike;
     String ball;
-    String result;
+    String ballAndStr;
 
     public StateItem(String number, String strike, String ball) {
         this.number = number;
@@ -17,7 +17,12 @@ public class StateItem {
         this.ball = ball;
     }
 
-    public StateItem(String result) {
-        this.result = result;
+
+    public StateItem(String number, String ballAndStr) {
+        this.number = number;
+        this.ballAndStr = ballAndStr;
     }
+
+
+
 }

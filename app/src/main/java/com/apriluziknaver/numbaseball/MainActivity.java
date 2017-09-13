@@ -33,5 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void StartDig(View view){
+        Intent intent=new Intent(this,ResultActivity.class);
+        startActivity(intent);
+    }
+
 
 }

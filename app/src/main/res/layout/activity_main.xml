@@ -11,6 +11,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="StartBtn"/>
-
+    <Button
+        android:layout_alignParentBottom="true"
+        android:text="Dig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="StartDig"/>
 
 </RelativeLayout>

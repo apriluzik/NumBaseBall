@@ -1,5 +1,6 @@
 package com.apriluziknaver.numbaseball;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
 
+    Intent reIntent;
 
     ArrayList<StateItem> states = new ArrayList<>();
     StringBuffer buffer;
@@ -71,9 +73,12 @@ public class GameActivity extends AppCompatActivity {
         stateAdapter = new StateAdapter(states, this);
         myRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         myRecycler.setAdapter(stateAdapter);
+        reIntent= new Intent(this,ResultActivity.class);
 
         initViewNum();
         makeNumber();
+
+
 
 
     }
@@ -224,7 +229,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
 
-        showResult();
+        showStates();
         return;
 
     }
@@ -260,11 +265,34 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public void showResult() {
+    public void showStates() {
 
-        states.add(new StateItem(buffer.toString(), strike + "", ball + ""));
+        states.add(new StateItem(buffer.toString(),strike + "S",ball + "B"));
+
+//        if(strike==0){
+//            states.add(new StateItem(buffer.toString(),strike + "s"));
+//
+//        }else if(ball==0){
+//            states.add(new StateItem(buffer.toString(),ball + "B"));
+//        }else{
+//            states.add(new StateItem(buffer.toString(),strike + "S",ball + "B"));
+//        }
+
+
 
         stateAdapter.notifyDataSetChanged();
+
+        if(strike==3){
+            Toast.makeText(this, "WINWIN", Toast.LENGTH_SHORT).show();
+
+
+            reIntent.putExtra("Result","win");
+            startActivity(reIntent);
+
+        }else if(roundCnt==10){
+            reIntent.putExtra("Result","lose");
+            startActivity(reIntent);
+        }
 
     }
 
