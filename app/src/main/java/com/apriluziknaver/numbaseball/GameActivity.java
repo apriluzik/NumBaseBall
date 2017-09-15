@@ -42,7 +42,7 @@ public class GameActivity extends AppCompatActivity {
     boolean isThird = false;
     boolean isOut = false;
     boolean isHit = false;
-    int roundCnt = 1;
+    int roundCnt ;
 
     boolean isRnd = true;
     int[] com = new int[3];
@@ -302,12 +302,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void initState(){
-
+        roundCnt=1;
         states =  new ArrayList<>();
         manager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         stateAdapter = new StateAdapter(states, this);
         myRecycler.setLayoutManager(manager);
         myRecycler.setAdapter(stateAdapter);
+
         countRound.setText(roundCnt+"");
         stateAdapter.notifyDataSetChanged();
 
