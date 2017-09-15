@@ -39,8 +39,26 @@ public class StateAdapter extends RecyclerView.Adapter {
         ViewHolder mholder = (ViewHolder)holder;
 
         mholder.number.setText(item.get(position).number);
-        mholder.strike.setText(item.get(position).strike);
-        mholder.ball.setText(item.get(position).ball);
+
+
+        if(item.get(position).strike.equals("0S")){
+            mholder.strike.setText("");
+        }else{
+            mholder.strike.setText(item.get(position).strike);
+        }
+
+        if(item.get(position).ball.equals("0B")){
+            mholder.ball.setText("");
+        }else{
+            mholder.ball.setText(item.get(position).ball);
+        }
+
+
+        if(item.get(position).strike.equals("0S")&&item.get(position).ball.equals("0B")){
+            mholder.strike.setText("OUT");
+        }
+
+
 
     }
 
@@ -60,6 +78,8 @@ public class StateAdapter extends RecyclerView.Adapter {
             ball = itemView.findViewById(R.id.ball);
             strike = itemView.findViewById(R.id.strike);
             number = itemView.findViewById(R.id.number);
+
+
 
         }
     }

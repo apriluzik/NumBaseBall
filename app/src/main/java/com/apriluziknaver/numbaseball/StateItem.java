@@ -15,14 +15,7 @@ public class StateItem {
         this.number = number;
         this.strike = strike;
         this.ball = ball;
+        ballAndStr= ball+strike;
     }
-
-
-    public StateItem(String number, String ballAndStr) {
-        this.number = number;
-        this.ballAndStr = ballAndStr;
-    }
-
-
 
 }

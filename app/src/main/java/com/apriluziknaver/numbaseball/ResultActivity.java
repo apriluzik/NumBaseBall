@@ -38,13 +38,17 @@ public class ResultActivity extends AppCompatActivity {
 
             case R.id.backBtn:
 
+//                Intent reintent = getIntent();
+//                setResult(RESULT_OK,reintent);
+
                 finish();
 
                 break;
 
             case R.id.okBtn:
 
-
+                Intent intent = new Intent(this,MainActivity.class);
+                startActivity(intent);
 
                 break;
 

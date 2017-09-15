@@ -17,7 +17,9 @@ public class GameActivity extends AppCompatActivity {
 
     Intent reIntent;
 
-    ArrayList<StateItem> states = new ArrayList<>();
+
+    LinearLayoutManager manager;
+    ArrayList<StateItem> states;
     StringBuffer buffer;
     TextView myName;
 
@@ -47,7 +49,6 @@ public class GameActivity extends AppCompatActivity {
 
     int strike;
     int ball;
-    StateItem stateItem;
 
     ArrayList<Integer> user = new ArrayList<>();
 
@@ -70,10 +71,10 @@ public class GameActivity extends AppCompatActivity {
         secondN = (ImageView) findViewById(R.id.second);
         thirdN = (ImageView) findViewById(R.id.third);
 
-        stateAdapter = new StateAdapter(states, this);
-        myRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        myRecycler.setAdapter(stateAdapter);
+        initState();
+
         reIntent= new Intent(this,ResultActivity.class);
+
 
         initViewNum();
         makeNumber();
@@ -252,8 +253,14 @@ public class GameActivity extends AppCompatActivity {
         switch (v.getId()) {
 
             case R.id.submit_numbers:
-                hitNumbers();
-                roundCnt++;
+                if(user.size()==3){
+                    hitNumbers();
+                    roundCnt++;
+
+                }else {
+                    Toast.makeText(this,"숫자를 입력해 주세요", Toast.LENGTH_SHORT).show();
+
+                }
                 break;
 
             case R.id.delete_numbers:
@@ -267,27 +274,18 @@ public class GameActivity extends AppCompatActivity {
 
     public void showStates() {
 
-        states.add(new StateItem(buffer.toString(),strike + "S",ball + "B"));
-
-//        if(strike==0){
-//            states.add(new StateItem(buffer.toString(),strike + "s"));
-//
-//        }else if(ball==0){
-//            states.add(new StateItem(buffer.toString(),ball + "B"));
-//        }else{
-//            states.add(new StateItem(buffer.toString(),strike + "S",ball + "B"));
-//        }
-
+        states.add(new StateItem(buffer.toString(), strike+ "S", ball + "B"));
 
 
         stateAdapter.notifyDataSetChanged();
+
 
         if(strike==3){
             Toast.makeText(this, "WINWIN", Toast.LENGTH_SHORT).show();
 
 
             reIntent.putExtra("Result","win");
-            startActivity(reIntent);
+            startActivityForResult(reIntent,1004);
 
         }else if(roundCnt==10){
             reIntent.putExtra("Result","lose");
@@ -296,4 +294,22 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        initState();
+    }
+
+    public void initState(){
+
+        states =  new ArrayList<>();
+        manager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        stateAdapter = new StateAdapter(states, this);
+        myRecycler.setLayoutManager(manager);
+        myRecycler.setAdapter(stateAdapter);
+        countRound.setText(roundCnt+"");
+        stateAdapter.notifyDataSetChanged();
+
+    }
 }
