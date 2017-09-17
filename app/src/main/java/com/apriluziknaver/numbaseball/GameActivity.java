@@ -16,19 +16,16 @@ import java.util.ArrayList;
 public class GameActivity extends AppCompatActivity {
 
     Intent reIntent;
-
+    ArrayList<StateItem> states;
+    ArrayList<Integer> user = new ArrayList<>();
 
     LinearLayoutManager manager;
-    ArrayList<StateItem> states;
     StringBuffer buffer;
     TextView myName;
 
     ImageView myImg;
     RecyclerView myRecycler;
 
-    TextView someoneName;
-    ImageView someoneImg;
-    RecyclerView someoneRecycler;
     StateAdapter stateAdapter;
     TextView countRound;
 
@@ -36,6 +33,9 @@ public class GameActivity extends AppCompatActivity {
     ImageView secondN;
     ImageView thirdN;
 
+//    TextView someoneName;
+//    ImageView someoneImg;
+//    RecyclerView someoneRecycler;
 
     boolean isFirst = false;
     boolean isSecond = false;
@@ -50,7 +50,7 @@ public class GameActivity extends AppCompatActivity {
     int strike;
     int ball;
 
-    ArrayList<Integer> user = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
