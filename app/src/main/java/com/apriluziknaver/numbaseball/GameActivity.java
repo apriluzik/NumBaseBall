@@ -218,19 +218,15 @@ public class GameActivity extends AppCompatActivity {
 
         Log.d("result", buffer + "\n" + strike + " S/ " + ball + " B/ " + isOut + " OUT/" + roundCnt + " round");
 
-        if (isHit) {
-            initViewNum();
-
-            user.clear();
-            isFirst = false;
-            isSecond = false;
-            isThird = false;
-
-
-        }
-
-
-        showStates();
+//        if (isHit) {
+//            initViewNum();
+//            user.clear();
+//            isFirst = false;
+//            isSecond = false;
+//            isThird = false;
+//
+//        }
+//        showStates();
         return;
 
     }
@@ -249,18 +245,28 @@ public class GameActivity extends AppCompatActivity {
 
     public void clickButton(View v) {
 
-
         switch (v.getId()) {
 
             case R.id.submit_numbers:
+
                 if(user.size()==3){
                     hitNumbers();
-                    roundCnt++;
 
                 }else {
                     Toast.makeText(this,"숫자를 입력해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (isHit) {
+                    initViewNum();
+                    user.clear();
+                    isFirst = false;
+                    isSecond = false;
+                    isThird = false;
 
                 }
+                roundCnt++;
+                countRound.setText(roundCnt+1+"");
+                showStates();
                 break;
 
             case R.id.delete_numbers:
@@ -276,20 +282,18 @@ public class GameActivity extends AppCompatActivity {
 
         states.add(new StateItem(buffer.toString(), strike+ "S", ball + "B"));
 
-
         stateAdapter.notifyDataSetChanged();
 
 
         if(strike==3){
             Toast.makeText(this, "WINWIN", Toast.LENGTH_SHORT).show();
 
-
             reIntent.putExtra("Result","win");
             startActivityForResult(reIntent,1004);
 
-        }else if(roundCnt==10){
+        }else if(roundCnt==9){
             reIntent.putExtra("Result","lose");
-            startActivity(reIntent);
+            startActivityForResult(reIntent,1004);
         }
 
     }
@@ -302,14 +306,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void initState(){
-        roundCnt=1;
+        roundCnt=0;
         states =  new ArrayList<>();
         manager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         stateAdapter = new StateAdapter(states, this);
         myRecycler.setLayoutManager(manager);
         myRecycler.setAdapter(stateAdapter);
 
-        countRound.setText(roundCnt+"");
+        countRound.setText(roundCnt+1+"");
         stateAdapter.notifyDataSetChanged();
 
     }
