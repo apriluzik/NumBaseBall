@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+//SignUp 가서 로그인하고 다시 돌아오면 SignUp버튼 사라져있고 내정보보임.
 
 
 
@@ -26,17 +27,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void StartBtn(View view){
-
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
 
 
     }
 
-    public void StartDig(View view){
-        Intent intent=new Intent(this,ResultActivity.class);
-        startActivity(intent);
+    public void SignUp(View view){
+        Intent intent=new Intent(this,SignUpActivity.class);
+        startActivityForResult(intent,1000);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+
+
+    }
 }

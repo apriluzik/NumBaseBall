@@ -8,14 +8,16 @@
 
 <Button
     android:text="start"
+    android:layout_margin="16dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="StartBtn"/>
     <Button
         android:layout_alignParentBottom="true"
-        android:text="Dig"
+        android:layout_margin="16dp"
+        android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="StartDig"/>
+        android:onClick="SignUp"/>
 
 </RelativeLayout>

@@ -17,8 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameActivity" />
-        <activity android:name=".ResultActivity"
-            android:theme="@style/AppTheme.Dialog"></activity>
+        <activity
+            android:name=".ResultActivity"
+            android:theme="@style/AppTheme.Dialog" />
+        <activity android:name=".SignUpActivity"></activity>
     </application>
 
 </manifest>
