@@ -112,7 +112,7 @@
             android:layout_height="64dp">
             <ImageView
                 android:id="@+id/submit_numbers"
-                android:src="@drawable/btn_hit"
+                android:src="@drawable/btn_hit_on"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
@@ -216,7 +216,7 @@
             android:layout_height="64dp">
             <ImageView
                 android:id="@+id/delete_numbers"
-                android:src="@drawable/btn_backspace"
+                android:src="@drawable/btn_del"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"

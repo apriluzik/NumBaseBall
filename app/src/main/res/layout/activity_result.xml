@@ -67,7 +67,9 @@
 
          <ImageView
              android:id="@+id/backBtn"
-             android:src="@drawable/btn_hit"
+             android:tint="#ff8800"
+             android:scaleType="centerInside"
+             android:src="@drawable/replay"
              android:layout_weight="1"
              android:layout_width="wrap_content"
              android:layout_height="60dp"
@@ -75,7 +77,8 @@
              android:onClick="clickButton"/>
          <ImageView
              android:id="@+id/okBtn"
-             android:src="@drawable/btn_backspace"
+             android:src="@drawable/end"
+             android:scaleType="centerInside"
              android:layout_weight="1"
              android:layout_width="wrap_content"
              android:layout_height="60dp"
