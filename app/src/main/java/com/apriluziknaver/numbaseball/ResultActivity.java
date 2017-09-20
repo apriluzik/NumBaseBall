@@ -7,16 +7,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
 
     ImageView img;
     TextView name;
-
     TextView resultView;
-
     Intent reIntent;
+    TextView score;
+    int round;
+    String record;
+
+    ArrayList<MyRecord> myRecords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,24 @@ public class ResultActivity extends AppCompatActivity {
         img = (ImageView)findViewById(R.id.img);
         name = (TextView)findViewById(R.id.name);
         resultView = (TextView)findViewById(R.id.result);
+        score = (TextView)findViewById(R.id.score);
 
         reIntent=getIntent();
 
-        resultView.setText(reIntent.getStringExtra("Result"));
+        round = reIntent.getIntExtra("Round",0);
+        record= reIntent.getStringExtra("Result");
+
+        resultView.setText("You"+record);
+
+        if(record.equals("win")){
+
+            score.setText("플레이한 라운드: "+round);
+
+        }else {
+
+        }
+
+
     }
 
     public void clickButton(View v){

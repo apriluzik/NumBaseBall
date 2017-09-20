@@ -27,6 +27,24 @@
 https://play.google.com/store/apps/details?id=패키지명
 -->
 
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_centerInParent="true"
+        android:lines="1"
+        android:ems="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/loginBtn"
+        android:layout_toRightOf="@+id/edit_name"
+        android:layout_centerInParent="true"
+        android:text="확인"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginLeft="8dp"
+        android:clickable="true"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.CardView
         android:backgroundTint="#dada"

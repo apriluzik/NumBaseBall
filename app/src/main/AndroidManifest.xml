@@ -20,7 +20,8 @@
         <activity
             android:name=".ResultActivity"
             android:theme="@style/AppTheme.Dialog" />
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".RecordActivity"></activity>
     </application>
 
 </manifest>

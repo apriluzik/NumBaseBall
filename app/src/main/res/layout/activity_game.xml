@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:weightSum="3"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,73 +8,101 @@
     android:layout_height="match_parent"
     tools:context="com.apriluziknaver.numbaseball.GameActivity">
 
+    <!--라운드카운트-->
+    <!--이미지뷰: 고정 텍스트(이미지)-->
+    <!--텍스트부: 라운드카운트 텍스트-->
     <LinearLayout
+        android:gravity="center"
         android:orientation="horizontal"
-        android:id="@+id/layout_playview"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <ImageView
+
+            android:id="@+id/my_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round" />
+        <TextView
+            android:id="@+id/my_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="NICKNAME"
+            android:textSize="14sp" />
+            </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_margin="2dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/count"
+            android:text="0"
+            android:textSize="32sp"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/round"
+            android:background="#000"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+            </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <!--사용자-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        >
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <!--사용자-->
-        <LinearLayout
-            android:layout_width="100dp"
+
+    </LinearLayout>
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_recycler"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_margin="8dp"
+            android:scrollbars="vertical">
 
-            <ImageView
-
-                android:id="@+id/my_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher_round" />
-
-            <TextView
-                android:id="@+id/my_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:text="NICKNAME"
-                android:textSize="14sp" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/my_recycler"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="2dp"
-                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-
-        <!--라운드카운트-->
-        <!--이미지뷰: 고정 텍스트(이미지)-->
-        <!--텍스트부: 라운드카운트 텍스트-->
-        <LinearLayout
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:layout_width="128dp"
-            android:layout_height="56dp">
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/count"
-                android:text="0"
-                android:textSize="32sp"
-                android:layout_width="48dp"
-                android:layout_height="match_parent" />
-            <ImageView
-                android:layout_weight="1"
-                android:id="@+id/round"
-                android:background="#000"
-                android:scaleType="centerCrop"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
+        </android.support.v7.widget.RecyclerView>
 
         <!--상대방-->
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_weight="0.5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,13 +129,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"></android.support.v7.widget.RecyclerView>
-        </LinearLayout>
+        </LinearLayout>-->
 
-    </LinearLayout>
 
     <!---->
     <LinearLayout
         android:id="@+id/layout_number"
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -77,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
 
 
         initViewNum();
-        makeNumber();
+
 
 
 
@@ -92,26 +92,30 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void makeNumber() {
+        int[] c = new int[3];
+
+        isRnd=true;
 
         while (isRnd) {
 
-            for (int i = 0; i < com.length; i++) {
+            for (int i = 0; i < c.length; i++) {
 
                 if (i == 0) {
-                    com[i] = (int) (Math.random() * 9) + 1;
+                    c[i] = (int) (Math.random() * 9) + 1;
                 } else {
-                    com[i] = (int) (Math.random() * 10);
+                    c[i] = (int) (Math.random() * 10);
                 }
             }
-            if (com[0] != com[1] && com[1] != com[2] && com[0] != com[2]) {
+            if (c[0] != c[1] && c[1] != c[2] && c[0] != c[2]) {
 
                 isRnd = false;
             }
 
 
         }
-
+        com = c;
         Log.d("result", "com:" + com[0] + "" + com[1] + "" + com[2] + "");
+        Log.d("result", "c:" + c[0] + "" + c[1] + "" + c[2] + "");
 
     }
 
@@ -278,6 +282,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    //Result Activity
     public void showStates() {
 
         states.add(new StateItem(buffer.toString(), strike+ "S", ball + "B"));
@@ -287,11 +292,12 @@ public class GameActivity extends AppCompatActivity {
 
         if(strike==3){
             Toast.makeText(this, "WINWIN", Toast.LENGTH_SHORT).show();
-
+            reIntent.putExtra("Round",roundCnt);
             reIntent.putExtra("Result","win");
             startActivityForResult(reIntent,1004);
 
         }else if(roundCnt==9){
+            reIntent.putExtra("Round",roundCnt);
             reIntent.putExtra("Result","lose");
             startActivityForResult(reIntent,1004);
         }
@@ -315,6 +321,8 @@ public class GameActivity extends AppCompatActivity {
 
         countRound.setText(roundCnt+1+"");
         stateAdapter.notifyDataSetChanged();
+
+        makeNumber();
 
     }
 }
