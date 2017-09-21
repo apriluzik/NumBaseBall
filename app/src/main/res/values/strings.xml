@@ -1,7 +1,7 @@
 <resources>
     <string name="win">YOU WIN</string>
     <string name="lose">YOU LOSE</string>
-    <string name="app_name">NumBaseBall</string>
+    <string name="app_name">숫자야구</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

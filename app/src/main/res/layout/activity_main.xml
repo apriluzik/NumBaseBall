@@ -8,56 +8,137 @@
     android:layout_height="match_parent"
     tools:context="com.apriluziknaver.numbaseball.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_weight="1"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="48dp"
-            android:layout_height="48dp">
+        android:layout_height="match_parent"
+        >
             <ImageView
-                android:id="@+id/userimg"
-                android:src="@mipmap/ic_launcher"
-                android:layout_width="wrap_content"
+                android:id="@+id/text"
+                android:layout_marginTop="32dp"
+                android:scaleType="center"
+                android:src="@drawable/main"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.v7.widget.CardView>
 
-
+<android.support.v7.widget.CardView
+    android:layout_marginTop="20dp"
+    android:layout_below="@+id/text"
+    app:cardCornerRadius="2dp"
+    android:elevation="8dp"
+    android:layout_marginLeft="32dp"
+    android:layout_marginRight="32dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
+
         android:id="@+id/name"
+        android:padding="10dp"
         android:gravity="center"
-        android:textSize="24sp"
-        android:text="TEXT"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
-    </LinearLayout>
+</android.support.v7.widget.CardView>
+    </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <!--로그인-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/login"
+            android:clickable="true"
+            android:onClick="Login"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="4dp"
+            android:layout_marginBottom="24dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                android:scaleType="centerCrop"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ball3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <TextView
+                android:layout_centerInParent="true"
+                android:gravity="center|bottom"
+                android:text="로그인하기"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+<!--스타트-->
+        <android.support.v7.widget.CardView
             android:id="@+id/start"
-            android:visibility="gone"
+            android:clickable="true"
+            android:onClick="StartBtn"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="4dp"
+            android:layout_marginBottom="24dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:paddingLeft="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ball3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+                <TextView
+                    android:id="@+id/tvBtn"
+                    android:layout_centerInParent="true"
+                    android:gravity="center|bottom"
+                    android:text="시작하기"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <!--<Button
+            android:layout_centerInParent="true"
+
+            android:id="@+id/start"
             android:text="start"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="StartBtn"/>
         <Button
+            android:layout_centerInParent="true"
+
             android:id="@+id/login"
             android:layout_weight="1"
-            android:text="Login"
-            android:layout_width="wrap_content"
+            android:text="시작하기"
+            android:backgroundTint="#fff"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="Login"/>
+            android:onClick="Login"/>-->
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
 
 

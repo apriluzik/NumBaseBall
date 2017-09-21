@@ -41,26 +41,43 @@ public class SignUpActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             name = editname.getText().toString();
-            intent.putExtra("Name",name);
 
+            if (editname.getText().toString().equals("")) {
 
-            Toast.makeText(SignUpActivity.this, name+"", Toast.LENGTH_SHORT).show();
-            new AlertDialog.Builder(SignUpActivity.this).setTitle("title").setMessage("").setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(SignUpActivity.this)
+                        .setMessage("이름을 입력해주세요.")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        }).show();
+
+            }else {
+
+            new AlertDialog.Builder(SignUpActivity.this).setTitle("").setMessage(" ' "+name+" ' 으로 하시겠습니까?").setPositiveButton("확인", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Log.d("signup","확인"+name);
-                    setResult(RESULT_OK,intent);
+
+                    setResult(RESULT_OK, intent);
+                    Log.d("signup", "확인" + name);
+                    intent.putExtra("Name", name);
                     finish();
-                }
-            }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Log.d("signup","취소");
+
                 }
             }).show();
+        }
 
         }
 
     };
 
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        setResult(RESULT_CANCELED, intent);
+        finish();
+    }
 }
