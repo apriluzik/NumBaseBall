@@ -1,8 +1,11 @@
 package com.apriluziknaver.numbaseball;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +20,10 @@ public class ResultActivity extends AppCompatActivity {
     Intent reIntent;
     TextView score;
     int round;
+    int win;
+    int lose;
     String record;
+
 
     ArrayList<MyRecord> myRecords;
 
@@ -38,13 +44,7 @@ public class ResultActivity extends AppCompatActivity {
 
         resultView.setText("You"+record);
 
-        if(record.equals("win")){
-
-            score.setText("플레이한 라운드: "+round);
-
-        }else {
-
-        }
+        resultSave();
 
 
     }
@@ -59,17 +59,51 @@ public class ResultActivity extends AppCompatActivity {
 //                setResult(RESULT_OK,reintent);
 
                 finish();
+                Intent intent=new Intent(this,GameActivity.class);
+
+                startActivity(intent);
 
                 break;
 
             case R.id.okBtn:
 
-                Intent intent = new Intent(this,MainActivity.class);
-                startActivity(intent);
+                finish();
 
                 break;
 
         }
 
     }
+
+    public void resultSave(){
+        SharedPreferences preferences = getSharedPreferences("Record",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        if(record.equals("win")){
+            score.setText("플레이한 라운드: "+round);
+
+            win = preferences.getInt("Win",0);
+            win++;
+            editor.remove("Win");
+            editor.commit();
+
+            editor.putInt("Win",win);
+            editor.commit();
+            Log.d("리절트","WIN:"+win+"");
+
+        }else{
+
+
+            lose = preferences.getInt("Lose",0);
+            lose++;
+            editor.remove("Lose");
+            editor.commit();
+
+            editor.putInt("Lose",lose);
+            editor.commit();
+            Log.d("리절트","LOSE:"+lose+"");
+
+        }
+    }
+
 }

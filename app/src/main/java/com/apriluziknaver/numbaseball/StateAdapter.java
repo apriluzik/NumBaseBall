@@ -1,6 +1,7 @@
 package com.apriluziknaver.numbaseball;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,7 @@ public class StateAdapter extends RecyclerView.Adapter {
 
 
 
+
     }
 
     @Override
@@ -68,16 +70,20 @@ public class StateAdapter extends RecyclerView.Adapter {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
+        Typeface typeface;
         TextView ball;
         TextView strike;
         TextView number;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
+            typeface = Typeface.createFromAsset(context.getAssets(),"fonts/Semi-Coder-Regular.otf");
             ball = itemView.findViewById(R.id.ball);
+            ball.setTypeface(typeface);
             strike = itemView.findViewById(R.id.strike);
+            strike.setTypeface(typeface);
             number = itemView.findViewById(R.id.number);
+            number.setTypeface(typeface);
 
 
 

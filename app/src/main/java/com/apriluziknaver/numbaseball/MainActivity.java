@@ -1,6 +1,7 @@
 package com.apriluziknaver.numbaseball;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     String tablename="record";
     Cursor cursor;
 
+    SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,39 +44,52 @@ public class MainActivity extends AppCompatActivity {
         tvname=(TextView)findViewById(R.id.name);
         start = (CardView) findViewById(R.id.start);
         login = (CardView) findViewById(R.id.login);
-
-        openDB();
-
-        cursor = db.rawQuery("SELECT * FROM " + tablename, null);
-        while (cursor.moveToNext()) {
-
-            MyRecord record = new MyRecord();
-            record.name = cursor.getString(cursor.getColumnIndex("name"));
-            record.win += cursor.getInt(cursor.getColumnIndex("win"));
-            record.lose += cursor.getInt(cursor.getColumnIndex("lose"));
-            records.add(record);
-            myRecord=record;
-            Log.d("로그1",record.name+"/"+record.win+"/"+record.lose);
-        }
+        preferences = getSharedPreferences("Record",MODE_PRIVATE);
 
 
-        if(records.size()==0){
-            tvname.setText("로그인이 필요합니다");
-            start.setVisibility(View.GONE);
-        }else{
-            String msg=" 님 / 승 "+myRecord.win+" 패 "+myRecord.lose;
-            tvname.setText(myRecord.name+msg);
-            start.setVisibility(View.VISIBLE);
-            login.setVisibility(View.GONE);
-        }
+
+//
+//        openDB();
+//
+//        cursor = db.rawQuery("SELECT * FROM " + tablename, null);
+//        while (cursor.moveToNext()) {
+//
+//            MyRecord record = new MyRecord();
+//            record.name = cursor.getString(cursor.getColumnIndex("name"));
+//            record.win += cursor.getInt(cursor.getColumnIndex("win"));
+//            record.lose += cursor.getInt(cursor.getColumnIndex("lose"));
+//            records.add(record);
+//            myRecord=record;
+//            Log.d("로그1",record.name+"/"+record.win+"/"+record.lose);
+//        }
 
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        name = preferences.getString("Name","");
+        win = preferences.getInt("Win",0);
+        lose = preferences.getInt("Lose",0);
+
+        if(name.equals("")){
+            tvname.setText("로그인이 필요합니다");
+            start.setVisibility(View.GONE);
+        }else{
+            String msg=" 님 / 승 "+win+" 패 "+lose;
+            tvname.setText(name+msg);
+            start.setVisibility(View.VISIBLE);
+            login.setVisibility(View.GONE);
+        }
+
+    }
 
     public void StartBtn(View view){
         Intent intent = new Intent(this,GameActivity.class);
-        startActivityForResult(intent,2000);
+        intent.putExtra("Name",name);
+        startActivity(intent);
 
     }
 
@@ -92,47 +108,44 @@ public class MainActivity extends AppCompatActivity {
                 case 1000:
                     if(resultCode==RESULT_OK){
                         isResist=true;
-                        records.clear();
-                        name=data.getStringExtra("Name");
-                        win=data.getIntExtra("Win",0);
-                        lose=data.getIntExtra("Lose",0);
+//                        records.clear();
+//                        name=data.getStringExtra("Name");
+//                        win=data.getIntExtra("Win",0);
+//                        lose=data.getIntExtra("Lose",0);
+//
+//                        tvname.setText(name+"!");
+//                        start.setVisibility(View.VISIBLE);
+//                        login.setVisibility(View.GONE);
+//
+//                        db.execSQL("INSERT INTO " + tablename + "(name,win,lose)" +
+//                                "values('" + name +"',"+win+","+lose+")");
+//
+//                        cursor = db.rawQuery("SELECT * FROM " + tablename, null);
+//
+//                        while (cursor.moveToNext()) {
+//                            MyRecord record = new MyRecord();
 
-                        tvname.setText(name+"!");
+//                            record.name = cursor.getString(cursor.getColumnIndex("name"));
+//                            record.win += cursor.getInt(cursor.getColumnIndex("win"));
+//                            record.lose += cursor.getInt(cursor.getColumnIndex("lose"));
+//                            records.add(record);
+//
+//                            Log.d("로그",record.name+"/"+record.win+"/"+record.lose);
+//
+//                        }
+//
+//
+                        name = data.getStringExtra("Name");
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("Name",name);
+                        editor.commit();
                         start.setVisibility(View.VISIBLE);
                         login.setVisibility(View.GONE);
-
-                        db.execSQL("INSERT INTO " + tablename + "(name,win,lose)" +
-                                "values('" + name +"',"+win+","+lose+")");
-
-                        cursor = db.rawQuery("SELECT * FROM " + tablename, null);
-
-                        while (cursor.moveToNext()) {
-                            MyRecord record = new MyRecord();
-                            record.name = cursor.getString(cursor.getColumnIndex("name"));
-                            record.win += cursor.getInt(cursor.getColumnIndex("win"));
-                            record.lose += cursor.getInt(cursor.getColumnIndex("lose"));
-                            records.add(record);
-
-                            Log.d("로그",record.name+"/"+record.win+"/"+record.lose);
-
-                        }
-
-
 
 
                     }else if(resultCode==RESULT_CANCELED){
 
                         isResist=false;
-                    }
-
-                    break;
-                case 2000:
-                    if(resultCode==RESULT_OK){
-
-
-                    }else if(resultCode==RESULT_CANCELED){
-
-
                     }
 
                     break;
@@ -153,4 +166,9 @@ public class MainActivity extends AppCompatActivity {
                 "round INTEGER )");
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

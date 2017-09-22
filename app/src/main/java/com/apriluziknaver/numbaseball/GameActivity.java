@@ -1,6 +1,9 @@
 package com.apriluziknaver.numbaseball;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,10 +17,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
+    Typeface typeface;
 
     Intent reIntent;
     ArrayList<StateItem> states;
     ArrayList<Integer> user = new ArrayList<>();
+
+
 
     LinearLayoutManager manager;
     StringBuffer buffer;
@@ -32,10 +38,6 @@ public class GameActivity extends AppCompatActivity {
     ImageView firstN;
     ImageView secondN;
     ImageView thirdN;
-
-//    TextView someoneName;
-//    ImageView someoneImg;
-//    RecyclerView someoneRecycler;
 
     boolean isFirst = false;
     boolean isSecond = false;
@@ -56,16 +58,17 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        typeface = Typeface.createFromAsset(getAssets(),"fonts/koverwatch.ttf");
 
         myName = (TextView) findViewById(R.id.my_name);
-        myImg = (ImageView) findViewById(R.id.my_img);
+        myName.setText(getIntent().getStringExtra("Name")+" 님");
+        myName.setTypeface(typeface);
+//        myImg = (ImageView) findViewById(R.id.my_img);
         myRecycler = (RecyclerView) findViewById(R.id.my_recycler);
 
-//        someoneName = (TextView) findViewById(R.id.someone_name);
-//        someoneImg = (ImageView) findViewById(R.id.someone_img);
-//        someoneRecycler = (RecyclerView) findViewById(R.id.someone_recycler);
-
         countRound = (TextView) findViewById(R.id.count);
+        countRound.setTypeface(typeface);
+
 
         firstN = (ImageView) findViewById(R.id.first);
         secondN = (ImageView) findViewById(R.id.second);
@@ -73,12 +76,7 @@ public class GameActivity extends AppCompatActivity {
 
         initState();
 
-        reIntent= new Intent(this,ResultActivity.class);
-
-
         initViewNum();
-
-
 
 
 
@@ -191,10 +189,7 @@ public class GameActivity extends AppCompatActivity {
         buffer = new StringBuffer();
 
         for (int i = 0; i < com.length; i++) {
-
-            if (user.get(i) != 0) {
-                buffer.append(user.get(i));
-            }
+            buffer.append(user.get(i));
 
             for (int j = 0; j < user.size(); j++) {
 
@@ -247,6 +242,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    //showStates()
     public void clickButton(View v) {
 
         switch (v.getId()) {
@@ -286,30 +282,21 @@ public class GameActivity extends AppCompatActivity {
     public void showStates() {
 
         states.add(new StateItem(buffer.toString(), strike+ "S", ball + "B"));
-
         stateAdapter.notifyDataSetChanged();
+        Log.d("쇼스탯",buffer.toString()+strike+ "S"+ ball + "B");
 
+       if(strike==3 || roundCnt==9) {
+           Intent intent = new Intent(this,ResultActivity.class);
+           intent.putExtra("Round", roundCnt);
+           intent.putExtra("Result", strike == 3 ? "win" : "lose");
 
-        if(strike==3){
-            Toast.makeText(this, "WINWIN", Toast.LENGTH_SHORT).show();
-            reIntent.putExtra("Round",roundCnt);
-            reIntent.putExtra("Result","win");
-            startActivityForResult(reIntent,1004);
-
-        }else if(roundCnt==9){
-            reIntent.putExtra("Round",roundCnt);
-            reIntent.putExtra("Result","lose");
-            startActivityForResult(reIntent,1004);
-        }
+           startActivity(intent);
+           finish();
+       }
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        initState();
-    }
 
     public void initState(){
         roundCnt=0;
