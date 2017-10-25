@@ -288,6 +288,7 @@ public class GameActivity extends AppCompatActivity {
        if(strike==3 || roundCnt==9) {
            Intent intent = new Intent(this,ResultActivity.class);
            intent.putExtra("Round", roundCnt);
+           intent.putExtra("Name",myName.getText());
            intent.putExtra("Result", strike == 3 ? "win" : "lose");
 
            startActivity(intent);

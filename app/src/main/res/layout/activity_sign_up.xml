@@ -46,25 +46,25 @@ https://play.google.com/store/apps/details?id=패키지명
         android:layout_width="48dp"
         android:layout_height="wrap_content" />
 
-    <android.support.v7.widget.CardView
-        android:backgroundTint="#dada"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="32dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="4dp">
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:backgroundTint="#dada"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_marginBottom="32dp"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:layout_marginTop="4dp">-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:gravity="center"
-            android:text="NAVER LOGIN"
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="56dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="NAVER LOGIN"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="24sp"-->
+            <!--android:textStyle="bold" />-->
 
-    </android.support.v7.widget.CardView>
+    <!--</android.support.v7.widget.CardView>-->
 </RelativeLayout>
